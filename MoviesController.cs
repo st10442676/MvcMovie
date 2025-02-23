@@ -72,10 +72,7 @@ namespace MVCMovies.Controllers
         }
 
         // GET: Movies/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+       
 
         // POST: Movies/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -85,7 +82,7 @@ namespace MVCMovies.Controllers
         {
             return "From [HttpPost]Index: filter on " + searchString;
         }
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -117,7 +114,7 @@ namespace MVCMovies.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
             if (id != movie.Id)
             {
